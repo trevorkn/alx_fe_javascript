@@ -1,0 +1,100 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #121212;
+  color: #f5f5f5;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Title */
+h1 {
+  margin-bottom: 1rem;
+  color: #00ffe7;
+}
+
+/* Display random quote */
+#quoteDisplay {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 255, 231, 0.2);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+#quoteDisplay p {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+#quoteDisplay small {
+  color: #999;
+}
+
+/* Buttons */
+button {
+  background-color: #00ffe7;
+  color: #000;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  margin: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #00ccb8;
+}
+
+/* File input */
+input[type="file"] {
+  margin: 1rem 0;
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+/* Quote list section */
+#quoteList {
+  margin-top: 1rem;
+  width: 80%;
+  max-width: 700px;
+}
+
+#quoteList p {
+  background-color: #1a1a1a;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-left: 4px solid #00ffe7;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #eee;
+}
+
+/* Form styling */
+#newQuoteText, #newQuoteCategory {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  width: 250px;
+  border: 1px solid #444;
+  background-color: #1e1e1e;
+  color: #fff;
+  border-radius: 5px;
+}
