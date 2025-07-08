@@ -171,10 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    const exportButton = document.createElement("button");
-    exportButton.textContent = "Export Quotes to JSON";
-    exportButton.onclick = exportQuotesToJSON;
-    document.body.appendChild(exportButton);
+    document.getElementById("exportQuotes").onclick = exportQuotesToJSON;
     
   document.getElementById("newQuote").addEventListener("click", showRandomQuote);
   createAddQuoteForm();  // <-- this line satisfies the requirement
