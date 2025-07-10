@@ -340,7 +340,10 @@ document.addEventListener("DOMContentLoaded", () => {
     categoryFilter.value = savedCategory;
     filterQuotes()
   }
-  fetchQuotesFromServer();
-  setInterval(fetchQuotesFromServer, 15000);
+  function syncQuotes() {
+    fetchQuotesFromServer();
+  }
+  syncQuotes();
+  setInterval(syncQuotes, 15000);
   document.getElementById("postServerQuote").addEventListener("click", postLocalQuotesToServer);
 });
