@@ -263,7 +263,7 @@ async function fetchQuotesFromServer() {
 
       const notice = document.getElementById("syncNotice");
       if (notice) {
-        notice.textContent = "Quotes updated from server.";
+        notice.textContent = "Quotes synced with server!";
         setTimeout(() => {
           notice.textContent = "";
         }, 5000);
