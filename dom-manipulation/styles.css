@@ -98,3 +98,40 @@ input[type="file"] {
   color: #fff;
   border-radius: 5px;
 }
+
+/* Category dropdown */
+#categoryFilter {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 6px;
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #444;
+  font-size: 1rem;
+}
+
+/* Server quote container */
+#serverQuotes {
+  margin-top: 2rem;
+  width: 80%;
+  max-width: 700px;
+  background-color: #1a1a1a;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 255, 231, 0.1);
+}
+
+#serverQuotes p {
+  padding: 0.5rem;
+  border-bottom: 1px solid #333;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Sync notice */
+#syncNotice {
+  margin-top: 1rem;
+  color: #00ffe7;
+  font-size: 0.9rem;
+  text-align: center;
+}

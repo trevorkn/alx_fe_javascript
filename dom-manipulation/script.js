@@ -220,7 +220,7 @@ function filterQuotes() {
 const serverAPI = "https://jsonplaceholder.typicode.com/posts";
 
 //function 5 quotes from server and display them
-function fetchServerQuotes() {
+function fetchQuotesFromServer() {
   fetch(serverAPI)
     .then(res => res.json())
     .then(data => {
@@ -341,7 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
     categoryFilter.value = savedCategory;
     filterQuotes()
   }
-  fetchServerQuotes();
-  setInterval(fetchServerQuotes, 15000);
+  fetchQuotesFromServer();
+  setInterval(fetchQuotesFromServer, 15000);
   document.getElementById("postServerQuote").addEventListener("click", postLocalQuotesToServer);
 });
