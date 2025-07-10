@@ -220,28 +220,27 @@ function filterQuotes() {
 const serverAPI = "https://jsonplaceholder.typicode.com/posts";
 
 //function 5 quotes from server and display them
-function fetchQuotesFromServer() {
-  fetch(serverAPI)
-    .then(res => res.json())
-    .then(data => {
-      const container = document.getElementById("serverQuotes");
-      container.innerHTML = "<h3>Fetched from Server:</h3>";
+async function fetchQuotesFromServer() {
+  try {
+    const res = await fetch(serverAPI);
+    const data = await res.json();
 
-      const localQuotes = JSON.parse(localStorage.getItem("allQuotes")) || [];
-      let updated = false;
+    const container = document.getElementById("serverQuotes");
+    container.innerHTML = "<h3>Fetched from Server:</h3>";
 
-      const serverQuotes = data.slice(0, 5).map(post => ({
-        text: post.title,
-       category: post.body
-      }));
-    
+    const localQuotes = JSON.parse(localStorage.getItem("allQuotes")) || [];
+    let updated = false;
+
+    const serverQuotes = data.slice(0, 5).map(post => ({
+      text: post.title,
+      category: post.body
+    }));
+
     serverQuotes.forEach((serverQuote, i) => {
-      //Display like before
       const p = document.createElement("p");
       p.textContent = `"${serverQuote.text}" - (${serverQuote.category}) [ID: ${i + 1}]`;
       container.appendChild(p);
 
-      //sync logic
       const localIndex = localQuotes.findIndex(q => q.text === serverQuote.text);
 
       if (localIndex === -1) {
@@ -249,30 +248,30 @@ function fetchQuotesFromServer() {
         updated = true;
       } else if (localQuotes[localIndex].category !== serverQuote.category) {
         const userChoice = confirm(`Conflict detected for quote:\n"${serverQuote.text}"\n\nLocal category: "${localQuotes[localIndex].category}"\nServer category: "${serverQuote.category}"\n\nDo you want to replace the local version with the server version?`);
-        
         if (userChoice) {
           localQuotes[localIndex] = serverQuote;
-        updated = true;
+          updated = true;
         }
       }
-      });
-      
-      if (updated) {
-        localStorage.setItem("allQuotes", JSON.stringify(localQuotes));
-        quotes = localQuotes;
-        renderQuoteList();
-        populateCategories();
-        console.log("Quotes synced with server (server data used).");
+    });
 
-        document.getElementById("syncNotice").textContent = "Quotes updated from server.";
+    if (updated) {
+      localStorage.setItem("allQuotes", JSON.stringify(localQuotes));
+      quotes = localQuotes;
+      renderQuoteList();
+      populateCategories();
+
+      const notice = document.getElementById("syncNotice");
+      if (notice) {
+        notice.textContent = "Quotes updated from server.";
         setTimeout(() => {
-          document.getElementById("syncNotice").textContent = "";
+          notice.textContent = "";
         }, 5000);
       }
-    })
-      .catch(err => {
-      console.error("Failed to fetch from server:", err);
-    });
+    }
+  } catch (err) {
+    console.error("Failed to fetch from server:", err);
+  }
 }
 
 function postLocalQuotesToServer () {
