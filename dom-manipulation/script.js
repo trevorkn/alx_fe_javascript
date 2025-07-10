@@ -291,7 +291,7 @@ function postLocalQuotesToServer () {
     fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",
       headers: {
-        "content-Type": "application/json"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(payload)
     })
