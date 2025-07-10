@@ -23,6 +23,14 @@
         <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)"/>
         <button id="exportQuotes">Export Quotes</button>
 
+        <hr>
+
+        <h2>Quotes from server</h2>
+        <div id="serverQuotes"></div>
+        <button id="postServerQuote">Post Local Quotes to Server</button>
+
+        <div id="syncNotice" style="margin-top: 10px; color: green;"></div>
+
         <script src="script.js"></script>
        
     </body>
